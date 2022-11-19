@@ -1,0 +1,18 @@
+.light {
+    --color-bg: #CEE3F8;
+    --color-cards: #FFF;
+    --color-text-main: #283040;
+    --color-outline: #c7d6db;
+    --color-highlight: #ff5700;
+    --color-details: #547680;
+}
+
+.dark {
+    --color-bg: #1B2630;
+    --color-cards: #22303D;
+    --color-text-main: #FFF;
+    --color-outline: #405b63;
+    --color-highlight: #A3E2FF;
+    --color-icons: #A3E2FF;
+    --color-details: #8aa9b2;
+}
