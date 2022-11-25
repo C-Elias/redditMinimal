@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Filters from "../Filters/Filters";
 import Post from "../Post/Post";
 import PostLoading from "../Post/PostLoading";
-// import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 import { AnimatedList } from "react-animated-list";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -13,14 +13,17 @@ import {
 } from "../../app/appSlice";
 import { setCurrentSubreddit } from "../SubredditsAside/SubredditAsideSlice"
 import { setCurrentFilter } from "../Filters/filtersSlice";
-import Header from "../Header/Header";
+import { useParams } from "react-router-dom";
 
-const Home = ({ match }) => {
+
+const Home = () => {
+  
+  const { id } = useParams();
   const dispatch = useDispatch();
   const posts = useSelector(selectPosts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  const currentSubreddit = match.params.id;
+  const currentSubreddit = useParams.id;
 
   useEffect(() => {
     dispatch(setCurrentFilter("hot"));
@@ -28,10 +31,10 @@ const Home = ({ match }) => {
     dispatch(loadPostsHot());
   }, [dispatch, currentSubreddit]);
 
-  // if (error) {
-  //   // return <NotFoundPage />;
-  // }
-
+  if (error) {
+    return <NotFoundPage />;
+  }
+  
   return (
       <>
       <Filters />
@@ -51,3 +54,5 @@ const Home = ({ match }) => {
 };
 
 export default Home;
+
+

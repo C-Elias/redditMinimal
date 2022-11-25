@@ -13,16 +13,18 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 const Search = () => {
     const searchTerm = useSelector(selectSearchTerm);
     const dispatch = useDispatch();
-
-  const onSearchTermChangeHandler = (e) => {
-    const value = e.target.value;
-    dispatch(setSearchTerm(value));
+    
+    const onSearchTermChangeHandler = (e) => {
+      const value = e.target.value;
+      dispatch(setSearchTerm(value));
+    };
+    
+    const onClearSearchTermHandler = () => {
+      dispatch(clearSearchTerm());
+      // console.log(onSearchTermChangeHandler, "Here");
   };
 
-  const onClearSearchTermHandler = () => {
-    dispatch(clearSearchTerm());
-  };
-
+  //Resets the searchbar after entering search term
   const onKeyDownHandler = (e) => {
     if (searchTerm.trim() === "") {
       return;
@@ -32,8 +34,8 @@ const Search = () => {
     }
   };
 
+  //Checking if the search term is empty before redirect to search path
   const onSearchButtonClick = (e) => {
-    //checking if the search term is empty before redirect to search path
     if (searchTerm.trim() === "") {
       e.preventDefault();
       return;

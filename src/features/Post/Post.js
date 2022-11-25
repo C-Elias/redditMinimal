@@ -2,11 +2,11 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.css";
 import Card from "../../app/components/Card/Card";
-// import Comment from "../Comment/Comment";
+import Comment from "../Comments/Comment";
 import { FaComments } from "react-icons/fa";
 // import timeToTimeAgo from "../../utils/timeToTimeAgo";
 import { IoLogoReddit } from "react-icons/io5";
-import { fetchSubredditAbout } from "../../app/api/reddit-api";
+import { fetchSubredditAbout } from "../../api/reddit-api";
 import {
   selectIsLoading,
   loadComments,

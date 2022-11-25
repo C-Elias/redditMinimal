@@ -16,11 +16,38 @@ const Filters = ( {type} ) => {
     const currentFilter = useSelector(selectCurrentFilter);
     const currentSubreddit = useSelector(selectCurrentSubreddit);
     const dispatch = useDispatch();
+
+    const HotIcon = props => {
+        return (
+          <div>
+            <AiFillFire/>
+            <div className='icontext'>Hot</div>
+          </div>
+        )
+      }
+
+      const NewIcon = props => {
+        return (
+          <div>
+            <GiNewBorn text="New"/>
+            <div className='icontext'>New</div>
+          </div>
+        )
+      }
+
+      const TopIcon = props => {
+        return (
+          <div className="icons">
+            <FaChartLine />
+            <div className="icontext">Top</div>
+          </div>
+        )
+      }
     
     const icons = {
-        hot: <AiFillFire />,
-        new: <GiNewBorn />,
-        top: <FaChartLine />
+        hot: <HotIcon className="icons"/>,
+        new: <NewIcon className="icons"/>,
+        top: <TopIcon className="icons"/>,
     };
 
     const onClickHandler = (event, filter) => {
@@ -28,16 +55,16 @@ const Filters = ( {type} ) => {
         dispatch(setCurrentFilter(filter));
         switch (filter) {
             case 'hot':
-                console.log(filter);
+                console.log("Displaying the " + filter + " search filter");
                 console.log(currentSubreddit);
                 dispatch(loadPostsHot(currentSubreddit));
                 break;
             case 'new':
-                console.log(filter);
+                console.log("Displaying the " + filter + " search filter");
                 dispatch(loadPostsNew(currentSubreddit));
                 break;
             case 'top':
-                console.log(filter);
+                console.log("Displaying the " + filter + " search filter");
                 dispatch(loadPostsTop(currentSubreddit));
                 break;
             default:

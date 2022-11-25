@@ -11,8 +11,22 @@
     justify-content: space-evenly;
     align-items: center;
     color: var(--color-highlight);
+    list-style-type: none;
 }
 
 button.filter {
-    font-weight: 700;
+    font-weight: 900;
+}
+
+
+.icons {
+    align-items: center;
+    text-emphasis-style: bold;
+    
+}
+
+.icontext {
+    align-items: center;
+    text-emphasis-style: bold;
+    margin-bottom: 500px;
 }

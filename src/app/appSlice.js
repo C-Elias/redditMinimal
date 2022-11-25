@@ -6,7 +6,7 @@ import {
   fetchSubredditAbout,
   fetchComments,
   fetchSearchResults,
-} from '../app/api/reddit-api';
+} from '../api/reddit-api';
 
 export const loadPostsHot = createAsyncThunk(
   "app/loadSubredditPostsHot",

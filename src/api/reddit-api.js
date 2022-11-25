@@ -55,6 +55,7 @@ export const fetchPostsTop = async (subreddit) => {
 
 // FETCH SEARCH RESULTS
 export const fetchSearchResults = async (searchTerm) => {
+  console.log(searchTerm, " search term")
   const endpoint = `${url}/search.json?q=${searchTerm}`;
 
   const response = await fetch(endpoint);
@@ -63,6 +64,7 @@ export const fetchSearchResults = async (searchTerm) => {
 
   return jsonResponse.data.children;
 };
+
 
 //SUBREDDIT INFO FOR ABOUT CARD
 export const fetchSubredditAbout = async (subreddit) => {

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import About from '../About/About';
+import About from '../About/About';
 import Filters from '../Filters/Filters';
 import Post from '../Post/Post';
 import PostLoading from '../Post/PostLoading';
@@ -10,15 +10,17 @@ import { loadPostsHot ,selectPosts, selectIsLoading, selectError } from '../../a
 import { loadSubredditAbout } from '../../app/appSlice';
 import { setCurrentSubreddit } from '../SubredditsAside/SubredditAsideSlice';
 import { setCurrentFilter } from '../Filters/filtersSlice';
+import { useParams } from 'react-router-dom';
 
-const Subreddit = ({match}) => {
+const Subreddit = () => {
     const dispatch = useDispatch();
     const posts = useSelector(selectPosts); 
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
-    const currentSubreddit = match.params.id;
+    const currentSubreddit = useParams.id;
     const prefixedSubreddit = "r/" + currentSubreddit;
-
+    console.log(currentSubreddit, "Here - Subreddit");
+    
     useEffect(() => {
         dispatch(setCurrentFilter('hot'));
         dispatch(setCurrentSubreddit(prefixedSubreddit));
