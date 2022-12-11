@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^14.4.3",
     "axios": "^1.1.3",
     "peer": "^0.6.1",
-    "react": "^16.14.0",
+    "react": "^18.2.0",
     "react-animated-list": "^0.1.4",
     "react-dom": "^16.14.0",
     "react-icons": "^4.6.0",
